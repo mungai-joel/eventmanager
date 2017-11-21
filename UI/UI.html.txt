@@ -5,8 +5,8 @@
 
     <title>Events website</title>
 	
-	<meta name="author" content="your name" />
-	<meta name="description" content="" />	
+	<meta name="author" content="Joel Mungai" />
+	<meta name="description" content="event man" />	
 	<link rel="stylesheet" href="style.css" type="text/css" />
 	
 </head>
@@ -33,7 +33,7 @@
 		</div>
 		<div id="footer">
 			<p>
-				Webpage made by <a href="/" target="_blank">[joel mungai]</a>
+				Webpage made by joel mungai
 			</p>
 		</div>
 	</div>
