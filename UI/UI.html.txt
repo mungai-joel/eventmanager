@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <title>Events website</title>
+	
+	<meta name="author" content="your name" />
+	<meta name="description" content="" />	
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	
+</head>
+<body>
+<p> All events that will take place will be here in this website,entailing their location and guests arriving...</p>
+
+	<div id="page">
+		<div id="logo">
+			<h1><a href="/" id="logoLink">My First Website</a></h1>
+		</div>
+		<div id="nav">
+			<ul>
+				<li><a href="#/home.html">Home</a></li>
+				<li><a href="#/about.html">About</a></li>
+				<li><a href="#/contact.html">Contact</a></li>
+			</ul>	
+		</div>
+		<div id="content">
+			<h2>Home</h2>
+			<p>
+				This is an event page! All events shall appear hear!
+			</p>
+			
+		</div>
+		<div id="footer">
+			<p>
+				Webpage made by <a href="/" target="_blank">[joel mungai]</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>
