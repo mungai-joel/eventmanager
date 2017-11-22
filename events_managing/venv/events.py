@@ -15,11 +15,11 @@ TODOS = {
 }
 
 EVENTS = {
-    "ev1": {"id":1,"name":"caaname","rsvp":"NO", "category":"namecategory"},
-     "ev2":{"id":2, "name":"pname", "rsvp":"NO", "category":"namecategory"},
-     "ev3": {"id":1,"name":"caaname","rsvp":"YES", "category":"namecategory"},
-     "ev4": {"id":1,"name":"caaname","rsvp":"YES", "category":"namecategory"},
-     "ev5": {"id":1,"name":"caaname","rsvp":"YES", "category":"namecategory"}
+     1:{"id":1,"name":"caaname","rsvp":"NO", "category":"namecategory"},
+     2:{"id":2, "name":"Second Event", "rsvp":"NO", "category":"namecategory"},
+     3:{"id":3,"name":"Third Event","rsvp":"YES", "category":"namecategory"},
+     4:{"id":4,"name":"Fourth Event","rsvp":"YES", "category":"namecategory"},
+     5:{"id":5,"name":"Fith Event","rsvp":"YES", "category":"namecategory"}
 }
 
 parser = reqparse.RequestParser()
@@ -29,7 +29,7 @@ class Todo(Resource):
     # get an event
     def get(self, ev_id):
         # abort_if_todo_doesnt_exist(todo_id)
-        return EVENTS[ev_id]
+        return EVENTS[int(ev_id)]
     
         #delete
     def delete(self, ev_id):
@@ -74,4 +74,7 @@ api.add_resource(TodoList, '/events')
 api.add_resource(FilterOut, '/events/rsvp')
 api.add_resource(Todo, '/events/<ev_id>')
 
-app.run(debug=True)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
