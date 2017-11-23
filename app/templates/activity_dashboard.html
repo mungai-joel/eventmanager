@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block title %}DashBoard{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="view-dash">
+	<h1>This is Activity Dashboard</h1>
+	{% if bucketlists %}
+	<table class="activity-table">
+
+		<tbody>
+
+		
+			
+			{% for bucket in bucketlists.values() %}
+			{% set id = bucket.id %}
+			<tr>
+				<td><h2>Bucketlist: {{ bucket.title}}</h2></td>
+				<td>				
+					<form action="{{url_for('add_activity', id=id )}}" method="get">
+						<input class="btn" type="submit" value="Add" >
+					</form>
+				</td>
+			</tr>
+		
+			{% if bucket.activities %}
+
+			<tr>
+				<th>Activity</th>
+				<th>Action</th>
+			</tr>
+		
+				{% for activity in bucketlists[id].activities.values() %}
+						
+			<tr>
+				<td>{{ activity.activity }}</td>		
+				<td>
+					<form action="{{url_for('edit_activity', id=activity.id, bucketlist_id=bucket.id )}}"
+						method="get"><input class="btn-warning" type="submit" value="Edit" >
+					</form>
+				</td>
+
+				<td>
+					<form action="{{url_for('delete_activity', id=activity.id, bucketlist_id=bucket.id )}}" method="get">
+						<input class="btn-danger" type="submit" value="Delete" >
+					</form>
+				</td>	
+			</tr>
+					
+						
+				{% endfor %}
+			{% else %}
+		<tr>
+			<td><h3> No activities available </h3></td>
+		<!-- <a href="/add_activity"><button>Add</button></a> -->
+		</tr>
+
+			{% endif %}
+		{% endfor %}
+		</tbody>	
+	</table>
+	{% endif %}
+</div>
+{% endblock %}
