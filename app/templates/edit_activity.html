@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}Edit Activity{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{% from "include/_formhelpers.html" import render_field %}
+<div class="create-div">
+	<form method="POST" >
+		<h2 id="add-act-header">Edit Activity</h2>
+		{{ render_field(form.new_activity) }} 
+		<dd class="submit-btn"><input class="btn1" type="submit" value="Edit Activity"></dd>
+	</form>
+</div>
+{% endblock %}

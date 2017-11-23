@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Create Bucketlist{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{% from "include/_formhelpers.html" import render_field %}
+<div class="create-div">
+	<form method="POST" >
+		<h3 id="create-header">New Bucketlist</h3>
+		{{ render_field(form.title) }} 
+		{{ render_field(form.description) }}
+		<dd class="submit-btn"><input class="btn1" type="submit" value="Add"></dd>
+	</form>
+</div>
+{% endblock %}

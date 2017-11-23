@@ -1,1 +1,4 @@
-/events_managing/*
+venv/
+*.pyc
+.vscode
+*__pycache__/

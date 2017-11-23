@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}DashBoard{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="view-dash">
+
+	<div class="deep-div">
+			<h1>This is a Dashboard</h1>
+			{% if bucketlists %}
+			<table>
+				<thead>
+					<tr>
+						<td><b>Title</b></td><br><br>
+						<td><b>Description</b></td>
+						<td><b>Actions</b></td>
+					</tr>
+				</thead>
+				<tbody>
+				{% for bucket in bucketlists.values() %}
+					<tr>
+						<td><a class="anchor" href="{{ url_for('activity_dashboard')}}">{{ bucket.title }}</a></td>
+						<td><a class="anchor" href="">{{ bucket.description }}</a></td>
+						<td>
+							<form action="/edit_bucketlist/{{ bucket.id }}" method="get">
+								<input class="btn-warning" type="submit" value="Edit">
+							</form>
+						</td>
+		
+						<td>
+							<form action="{{ url_for('delete_bucketlist', id=bucket.id ) }}" method="post">
+								<input class="btn-danger" type="submit" value="Delete">
+							</form>
+						</td>
+						<td>
+							<form action="{{ url_for('add_activity', id=bucket.id ) }}" method="get">
+								<input class="btn" type="submit" value="Add">
+							</form>
+						</td>
+					</tr>
+				{% endfor %}
+				</tbody>	
+			</table>
+			{% else %}
+				No bucketlist available
+				<a href="/create_bucketlist"><button class="btn">Add</button></a>
+		
+			{% endif %}
+	</div>
+</div>
+{% endblock %}

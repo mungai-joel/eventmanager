@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}Register{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{% from "include/_formhelpers.html" import render_field %}
+	<div class="reg-div">
+				<form method="post" action=" ">
+					<h2>Register</h2>
+					<fieldset>
+							{{ render_field(form.username) }} 
+							{{ render_field(form.email) }}
+							{{ render_field(form.password) }}
+							{{ render_field(form.confirm) }}
+						<dd class="submit-btn"><input class="btn1" type="submit" value="Register"></dd>
+					</fieldset>
+				</form>
+	</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+		<!-- <label>First Name</label><br>
+		<input type="text" name=""><br>
+		<label>Last  Name</label><br>
+		<input type="text" name=""><br>
+		<label>Password </label><br>
+		<input type="password" name="password"><br>
+		<label>Confirm password</label><br>
+		<input type="password" name=""><br>
+		<p><i>already have an account?</i><a href="">login</a></p>
+		<button class="btn1">Register</button> -->
