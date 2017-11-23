@@ -1,6 +1,6 @@
 """modules and standard libraries to be used by User class"""
 
-from .bucketlist import BucketList
+from .events import Events
 
 class User(object):
     """user class"""
@@ -11,24 +11,26 @@ class User(object):
         self.email = email
         self.password = password
 
-        self.bucketlists = dict()
+        self.events = dict()
 
-    def create_bucketlist(self, title, description):
-        """create and add bucketlist to dictionary"""
-        new_bucketlist = BucketList(title, description)
-        self.bucketlists[new_bucketlist.id] = new_bucketlist
-        return new_bucketlist.id
+    def create_event(self, title, description, location, category):
+        """create and add events to dictionary"""
+        new_events = Events(title, description, location, category)
+        self.events[new_events.id] = new_events
+        return new_events.id
 
-    def update_bucketlist(self, id, title, description):
-        """update or edit the existing bucketlist"""
-        for key in self.bucketlists.copy().keys():
+    def update_event(self, id, title, description, location, category):
+        """update or edit the existing events"""
+        for key in self.events.copy().keys():
             if id == key:
-                self.bucketlists[key].title = title
-                self.bucketlists[key].description = description
+                self.events[key].title = title
+                self.events[key].description = description
+                self.events[key].location = location
+                self.events[key].category = category
 
 
-    def delete_bucketlist(self, id):
-        """deleted the bucketlist with key that matches id passed"""
-        for key  in self.bucketlists.copy().keys():
+    def delete_event(self, id):
+        """deleted the events with key that matches id passed"""
+        for key  in self.events.copy().keys():
             if id == key:
-                del self.bucketlists[key]
+                del self.events[key]
